@@ -1,0 +1,24 @@
+service: stripe-serverless
+
+custom:
+  secrets: ${file(secrets.json)}
+
+# frameworkVersion: "=X.X.X"
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  environment:
+    SLACK_TOKEN: ${self:custom.secrets.slackToken} # Slack Token
+    
+functions:
+  sendCompliment:
+    handler: functions.sendCompliment
+    events:
+      - http:
+          path: compliment
+          method: post
+          cors: true

@@ -1,0 +1,21 @@
+{
+  "name": "knope-compliments",
+  "version": "0.0.0",
+  "description": "Compliment your coworkers",
+  "scripts": {
+    "deploy": "serverless deploy -v",
+    "logs": "serverless logs -f createCharge -t",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec \"serverless offline start\""
+  },
+  "author": "Purvi Kanal",
+  "license": "MIT",
+  "dependencies": {
+    "@slack/client": "^4.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4",
+    "serverless": "^1.32.0",
+    "serverless-offline": "^3.27.0"
+  }
+}
