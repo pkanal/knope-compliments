@@ -3,17 +3,16 @@ service: stripe-serverless
 custom:
   secrets: ${file(secrets.json)}
 
-# frameworkVersion: "=X.X.X"
-
 plugins:
   - serverless-offline
 
 provider:
   name: aws
   runtime: nodejs8.10
+  profile: knope-compliments
   environment:
     SLACK_TOKEN: ${self:custom.secrets.slackToken} # Slack Token
-    
+
 functions:
   sendCompliment:
     handler: functions.sendCompliment
